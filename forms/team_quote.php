@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $caption_name = $_POST['caption_name'];
     $caption = $_POST['caption'];
     $team_card = $_POST['team_card'];
+    $team_mail = $_POST['team_mail'];
 
     $team_a_id = $_POST['team_a_id'];
     $team_a_br = $_POST['team_a_br'];
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $embed = [
         'title' => "$team_name 報名表",
-        'description' => "隊長：$caption_name\n隊長聯絡方式：$caption",
+        'description' => "隊長：$caption_name\n隊長聯絡方式：$caption\nMail：$team_mail",
         'color' => rand(0, 16777215), // 隨機生成十六進位顏色碼
         'footer' => [
             'text' => 'RS傳說對決公共娛樂聯賽',
@@ -121,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = curl_exec($ch);
     curl_close($ch);
 
-    if ($response === false) {
+    if ($response == true) {
         echo '表單提交成功，但發送消息失敗，請立即聯絡RS官方';
     } else {
         echo '報名表已送出！';

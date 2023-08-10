@@ -12,12 +12,12 @@ function generateRandomColor() {
     return $color;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 獲取表單提交的數據
     $sg_mail = $_POST['sg_mail'];
     $sg_discord_id = $_POST['sg_discord_id'];
     $sg_message = $_POST['sg_message'];
-    $sg_Contact = $POST['sg_Contact'];
+    $sg_Contact = $_POST['sg_Contact'];
 
     // 使用 Discord Webhook 發送消息
     $webhookUrl = 'https://discord.com/api/webhooks/1115809712135475253/MhmDGWasowmn_KahV7bg5h_irwOxOr6PBml1VCaVMDxmzIplIBo3aeVCmEIGP4A5vXFY';
